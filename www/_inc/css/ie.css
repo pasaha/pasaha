@@ -1,0 +1,82 @@
+/**
+ * ie.css
+ * InternetExplorer's css fixes
+ *
+ */
+
+* html{
+	/*
+		part of ie's position fixed solution
+		(with no additional http-request)
+	*/
+	_background: url(about:blank) no-repeat fixed;
+
+	/*
+		sprits' blinking fix
+	*/
+	filter: expression(
+		runtimeStyle.filter = '',
+		document.execCommand('BackgroundImageCache', false, true)
+	);
+}
+
+.ubl{
+	min-width:1000px;
+	max-width:1600px;
+}
+* html .ubl{
+width: expression(
+			((document.documentElement.clientWidth || document.body.clientWidth) < 100) ?  "100px" : ((document.documentElement.clientWidth || document.body.clientWidth) > 160) ?  "160px" : "100%"
+		);
+		border:1px solid red;
+}
+
+a{
+	cursor:pointer;
+	cursor:hand;
+}
+
+textarea{
+  overflow:auto;
+}
+
+.hor li{
+	//display:inline;
+	//zoom:1;
+}
+
+* html #outline{
+  height:100%;
+}
+
+* html .rc{
+	zoom:1;
+}
+
+
+	/* html .ie_t .t,
+	* html .ie_t .b{
+		background-image:expression('none');
+		filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true',src='../../_pic/rounds/ro_bd_24.png',sizingMethod='crop');
+	}*/
+
+/*
+	rc-shape + png-24 solution
+	. quirks mode must be turned on (ie's height:100% bug)
+	. filter perform much quicker than pngfix
+*/
+/* html .rc-shape{
+	height:1px;*
+	overflow:visible;
+}
+	* html .rc-shape .t,
+	* html .rc-shape .b{
+		background-image:none;
+		filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true',src='/_pic/rc-shape.png',sizingMethod='crop');
+	}
+	* html .rc-shape .tl{ clip:rect(7px 170px 80px 7px); }
+	* html .rc-shape .tr{ clip:rect(7px 7px 80px 0); }
+	* html .rc-shape .bl{ clip:rect(0 170px 7px 7px); }
+	* html .rc-shape .br{ clip:rect(0 7px 7px 0); }
+*/
+
